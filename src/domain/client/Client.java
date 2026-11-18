@@ -13,11 +13,15 @@ public class Client {
     private Client(String name, Email email, Phone phone) {
         Check.notBlank(name);
 
-        if (email == null || phone == null) {
-            throw new IllegalArgumentException("Email y teléfono son obligatorios");
+        if (email == null) {
+            throw new IllegalArgumentException("El email no puede ser nulo");
         }
 
-        this.name = name;
+        if (phone == null) {
+            throw new IllegalArgumentException("El teléfono no puede ser nulo");
+        }
+
+        this.name = name.trim();
         this.email = email;
         this.phone = phone;
     }

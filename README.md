@@ -1,23 +1,98 @@
-<<<<<<< HEAD
-## Getting Started
+No se si es importante el readme (le he pasado el proyecto al Chat para que me genere el readme y esto me ha escupido)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# DeliveryBooks
 
-## Folder Structure
+Proyecto Java desarrollado para la actividad 1 de Diseño de Software del ciclo DAW.
 
-The workspace contains two folders by default, where:
+## Descripción
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+DeliveryBooks es la base de dominio de una aplicación destinada a gestionar las necesidades de una empresa de venta de libros a través de Internet.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+El proyecto aplica fundamentos de programación orientada a objetos y principios de diseño de software.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Tecnologías
 
-## Dependency Management
+- Java 21
+- Visual Studio Code
+- Git y GitHub
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-=======
-# java
-Proyectos de JAVA
->>>>>>> e014d82dff3989493f99a6d81adc51e1661e9a4b
+## Estructura del proyecto
+
+```text
+deliverybooks/
+├── src/
+│   ├── domain/
+│   │   ├── book/
+│   │   │   ├── Author.java
+│   │   │   ├── Book.java
+│   │   │   └── Publisher.java
+│   │   ├── client/
+│   │   │   └── Client.java
+│   │   └── shared/
+│   │       ├── validation/
+│   │       │   └── Check.java
+│   │       └── valueobjects/
+│   │           ├── Email.java
+│   │           ├── Isbn.java
+│   │           ├── Money.java
+│   │           ├── Phone.java
+│   │           ├── Weight.java
+│   │           └── WeightUnit.java
+│   ├── services/
+│   ├── infrastructure/
+│   ├── test/
+│   │   └── FunctionalTests.java
+│   └── App.java
+├── bin/
+└── README.md
+```
+
+## Dominio
+
+El proyecto contiene dos contextos principales:
+
+- **Client:** gestión de clientes.
+- **Book:** gestión de libros, autores y editoriales.
+
+El paquete `shared` contiene las validaciones comunes y los objetos de valor utilizados por el dominio.
+
+## Value Objects
+
+- Email
+- Phone
+- Isbn
+- Money
+- Weight
+- WeightUnit
+
+Los objetos de valor validan sus datos durante la creación y utilizan factorías estáticas `of()`.
+
+## Validaciones
+
+La clase `Check` centraliza validaciones genéricas para tipos básicos.
+
+Los datos inconsistentes generan excepciones `IllegalArgumentException`.
+
+## Ejecución
+
+Compilar el proyecto desde la raíz:
+
+```powershell
+javac -d bin (Get-ChildItem -Path src -Recurse -Filter *.java | ForEach-Object { $_.FullName })
+```
+
+Ejecutar la aplicación:
+
+```powershell
+java -cp bin App
+```
+
+Ejecutar las pruebas funcionales:
+
+```powershell
+java -cp bin test.FunctionalTests
+```
+
+## Control de versiones
+
+El proyecto utiliza Git y GitHub para el control de versiones.

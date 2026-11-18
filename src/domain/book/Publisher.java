@@ -8,7 +8,7 @@ public class Publisher {
 
     private Publisher(String name) {
         Check.notBlank(name);
-        this.name = name;
+        this.name = name.trim();
     }
 
     public static Publisher of(String name) {

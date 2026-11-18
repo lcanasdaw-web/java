@@ -7,7 +7,9 @@ public record Email(String value) {
     public Email {
         Check.notBlank(value);
 
-        if (!value.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
+        value = value.trim();
+
+        if (!value.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
             throw new IllegalArgumentException("El email no tiene un formato válido");
         }
     }

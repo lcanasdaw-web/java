@@ -9,7 +9,7 @@ public record Weight(BigDecimal value, WeightUnit unit) {
         Check.positiveDecimal(value);
 
         if (unit == null) {
-            throw new IllegalArgumentException("La unidad no puede ser nula");
+            throw new IllegalArgumentException("La unidad de peso no puede ser nula");
         }
 
         value = value.stripTrailingZeros();

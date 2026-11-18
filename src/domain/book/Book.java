@@ -1,4 +1,3 @@
-
 package domain.book;
 
 import domain.shared.validation.Check;
@@ -25,12 +24,27 @@ public class Book {
     ) {
         Check.notBlank(title);
 
-        if (isbn == null || price == null || weight == null
-                || publisher == null || author == null) {
-            throw new IllegalArgumentException("Los datos del libro son obligatorios");
+        if (isbn == null) {
+            throw new IllegalArgumentException("El ISBN no puede ser nulo");
         }
 
-        this.title = title;
+        if (price == null) {
+            throw new IllegalArgumentException("El precio no puede ser nulo");
+        }
+
+        if (weight == null) {
+            throw new IllegalArgumentException("El peso no puede ser nulo");
+        }
+
+        if (publisher == null) {
+            throw new IllegalArgumentException("La editorial no puede ser nula");
+        }
+
+        if (author == null) {
+            throw new IllegalArgumentException("El autor no puede ser nulo");
+        }
+
+        this.title = title.trim();
         this.isbn = isbn;
         this.price = price;
         this.weight = weight;

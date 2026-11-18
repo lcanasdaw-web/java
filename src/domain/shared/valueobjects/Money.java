@@ -1,4 +1,3 @@
-
 package domain.shared.valueobjects;
 
 import domain.shared.validation.Check;
@@ -22,9 +21,11 @@ public record Money(BigDecimal amount, Currency currency) {
     }
 
     public static Money of(String amount, String currencyCode) {
+        Check.notBlank(amount);
+        Check.notBlank(currencyCode);
+
         return new Money(
                 new BigDecimal(amount),
-                Currency.getInstance(currencyCode)
-        );
+                Currency.getInstance(currencyCode));
     }
 }

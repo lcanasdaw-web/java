@@ -8,7 +8,7 @@ public class Author {
 
     private Author(String name) {
         Check.notBlank(name);
-        this.name = name;
+        this.name = name.trim();
     }
 
     public static Author of(String name) {

@@ -1,6 +1,16 @@
+# Esto lo he hecho para que no se suban los archivos compilados y de configuración local al repositorio
+
 # Archivos compilados
 bin/
 *.class
 
-# Configuración local de VS Code
+# Configuracion local de VS Code
 .vscode/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
